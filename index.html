@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raymond Pitt — AI Implementation Engineer</title>
+<meta name="description" content="AI Implementation Engineer. Shipped a production SaaS + iOS App Store app end-to-end by directing AI coding agents.">
+<style>
+:root{--bg:#0b0e14;--card:#131826;--text:#e6e9f0;--dim:#9aa3b5;--accent:#4f8ff7;--line:#232b3d}
+@media (prefers-color-scheme: light){:root{--bg:#f7f8fb;--card:#ffffff;--text:#161922;--dim:#5a6376;--accent:#2563eb;--line:#e3e7ef}}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:860px;margin:0 auto;padding:48px 20px}
+h1{font-size:2.1rem;letter-spacing:-.02em}
+.tag{color:var(--accent);font-weight:600;margin:.3rem 0 1rem}
+.sub{color:var(--dim);max-width:640px}
+.links{margin:1.2rem 0 0}
+.links a{color:var(--accent);text-decoration:none;margin-right:1.4rem;font-weight:500}
+.links a:hover{text-decoration:underline}
+h2{font-size:1.05rem;text-transform:uppercase;letter-spacing:.1em;color:var(--dim);margin:3rem 0 1rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px 26px;margin-bottom:18px}
+.card h3{font-size:1.25rem;margin-bottom:.2rem}
+.card .role{color:var(--accent);font-size:.9rem;font-weight:600;margin-bottom:.8rem}
+.card p{color:var(--dim);margin-bottom:.7rem}
+.card ul{margin:.4rem 0 .8rem 1.2rem;color:var(--dim)}
+.card li{margin-bottom:.35rem}
+.card b{color:var(--text)}
+.pill{display:inline-block;background:transparent;border:1px solid var(--line);border-radius:99px;padding:2px 12px;margin:2px 6px 2px 0;font-size:.8rem;color:var(--dim)}
+footer{margin-top:3.5rem;color:var(--dim);font-size:.9rem;border-top:1px solid var(--line);padding-top:1.5rem}
+a{color:var(--accent)}
+</style>
+</head>
+<body><div class="wrap">
+<header>
+<h1>Raymond Pitt</h1>
+<div class="tag">AI Implementation Engineer</div>
+<p class="sub">I ship production software by directing AI coding agents — architecture, specification, review, testing, and deployment stay with me; the agents multiply my output. In the last year I took a two-sided product (web SaaS + iOS app) from zero to the App Store with live subscription revenue, and built the multi-agent infrastructure that operates it.</p>
+<div class="links">
+<a href="mailto:ray.m.pitt@gmail.com">ray.m.pitt@gmail.com</a>
+<a href="https://github.com/pitowski812">GitHub</a>
+<a href="https://www.thepeptide1.com">Live product</a>
+</div>
+</header>
+
+<h2>Case Studies</h2>
+
+<div class="card">
+<h3>Peptide&#9312; — production SaaS + iOS App Store app</h3>
+<div class="role">Founder / sole builder &middot; Flask &middot; Capacitor &middot; StoreKit 2 &middot; Stripe &middot; SQLite &middot; Northflank &middot; Cloudflare</div>
+<p>A peptide-education platform: research library, dose calculator, scheduling calendar, community forum, and an AI research assistant — on the web and as a native iOS app with auto-renewable subscriptions.</p>
+<ul>
+<li><b>Navigated real App Store review to approval.</b> Rejected on IAP-steering (3.1.1), medical-citation (1.4.1), and HealthKit (2.5.1) guidelines — rearchitected the iOS purchase flow to native StoreKit 2 with server-side JWS receipt validation, built a compliance test suite that renders every marketing surface under the iOS user-agent and fails on any violation, and drove resubmissions through to approval.</li>
+<li><b>Live billing, two rails:</b> Stripe subscriptions on web + Apple IAP on iOS, unified account-based entitlements so a subscriber on either rail is recognized everywhere. Webhook reconciliation, refund/dispute handling, hourly Stripe sync.</li>
+<li><b>Operated like a team:</b> worktree-isolated branches, PR pipeline with 7 CI checks (pytest ~2,000 tests, ruff, pyright, pip-audit, security review), staging &rarr; production promotion with verified deploys.</li>
+</ul>
+<span class="pill">App Store approval</span><span class="pill">Stripe + IAP billing</span><span class="pill">2,000+ tests CI</span>
+</div>
+<div class="card">
+<h3>Pep&#9312;Ai — RAG assistant with fail-closed safety architecture</h3>
+<div class="role">Designer / builder &middot; hybrid retrieval (BM25 + vectors + rank fusion) &middot; local embeddings &middot; multi-stage safety gates</div>
+<p>A domain research assistant grounded in a curated evidence corpus (PubMed ingestion, community sources, audio-transcript pipeline via Whisper) — built for a domain where a wrong answer is a safety problem, not a typo.</p>
+<ul>
+<li><b>Three-state safety contract:</b> every checker distinguishes passed / blocked / checker-unavailable — an internal guard failure can never masquerade as &ldquo;no violation found.&rdquo; Deterministic guards down &rarr; the answer is withheld with a distinct degraded message; outages log greppable markers for alerting.</li>
+<li><b>Defense in depth:</b> pre-generation intent screening, deterministic bounds checking on generated numbers, claim-level faithfulness gating with a different-vendor LLM judge (and a circuit breaker so a judge outage reads as an outage, not a verdict).</li>
+<li><b>Evidence transparency:</b> formal literature and community-reported practice are separate, labeled lanes with exact attribution — community signal is preserved but never silently promoted to clinical fact.</li>
+<li><b>Evaluated, not vibes:</b> frozen retrieval benchmark + a 50-case answer-quality golden set judged by a different model vendor; route-level exception-injection tests prove the failure behavior.</li>
+</ul>
+<span class="pill">RAG</span><span class="pill">AI safety engineering</span><span class="pill">eval harnesses</span>
+</div>
+
+<div class="card">
+<h3>Multi-agent AI operations ecosystem</h3>
+<div class="role">Architect / operator &middot; Claude Code &middot; Codex &middot; MCP &middot; local LLMs (Ollama/LiteLLM) &middot; launchd automation</div>
+<p>The infrastructure that builds and runs everything above: a governed fleet of AI agents with one orchestrator, specialist engines, and mechanical guardrails.</p>
+<ul>
+<li><b>Governed orchestration:</b> ~30 specialized agents (builders, adversarial reviewers, compliance gates) with least-privilege tool grants; cross-vendor verification doctrine — model reviews find errors, deterministic tests certify truth.</li>
+<li><b>Reusable workflow engine:</b> parallel build waves with file-ownership preflights, mechanical exit-code test barriers, and adversarial SHIP/BLOCK review — failure propagation proven by injection tests.</li>
+<li><b>Self-operating:</b> 25+ scheduled jobs (deploy watchers, DB snapshots, content pipelines, a daily fleet-health report to Telegram); social content generation with automated no-claims compliance linting; performance-metrics feedback loop.</li>
+</ul>
+<span class="pill">agent orchestration</span><span class="pill">MCP</span><span class="pill">local LLMs</span><span class="pill">CI/CD</span>
+</div>
+<h2>How I Work</h2>
+<div class="card">
+<p><b style="color:var(--text)">AI-native, engineering-disciplined.</b> I treat AI agents the way a lead treats a team: I own the architecture, write the specs, review every diff adversarially, demand real test output before believing anything works, and keep humans on every irreversible gate. The method scales one person to a shipping team — the discipline is what makes it safe.</p>
+<span class="pill">Python / Flask</span><span class="pill">JavaScript</span><span class="pill">SQLite / SQL</span><span class="pill">Stripe</span><span class="pill">StoreKit 2</span><span class="pill">Claude Code / Codex</span><span class="pill">MCP servers</span><span class="pill">RAG / embeddings</span><span class="pill">Ollama / LiteLLM</span><span class="pill">n8n-style automation</span><span class="pill">GitHub Actions CI</span><span class="pill">Cloudflare / Northflank</span>
+</div>
+
+<footer>
+Raymond Pitt &middot; <a href="mailto:ray.m.pitt@gmail.com">ray.m.pitt@gmail.com</a> &middot; remote (US) &middot; open to AI implementation, automation engineering, and applied AI roles.
+</footer>
+</div></body></html>
