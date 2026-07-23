@@ -57,8 +57,8 @@ a{color:var(--accent)}
 <span class="pill">App Store approval</span><span class="pill">Stripe + IAP billing</span><span class="pill">2,000+ tests CI</span>
 </div>
 <div class="card">
-<h3>Pep&#9312;Ai — RAG assistant with fail-closed safety architecture</h3>
-<div class="role">Designer / builder &middot; hybrid retrieval (BM25 + vectors + rank fusion) &middot; local embeddings &middot; multi-stage safety gates</div>
+<h3>Pep&#9312;Ai — RAG chatbot with semantic search + fail-closed safety architecture</h3>
+<div class="role">Designer / builder &middot; semantic search (hybrid BM25 + vectors + rank fusion) &middot; local embeddings &middot; multi-stage safety gates</div>
 <p>A domain research assistant grounded in a curated evidence corpus (PubMed ingestion, community sources, audio-transcript pipeline via Whisper) — built for a domain where a wrong answer is a safety problem, not a typo.</p>
 <ul>
 <li><b>Three-state safety contract:</b> every checker distinguishes passed / blocked / checker-unavailable — an internal guard failure can never masquerade as &ldquo;no violation found.&rdquo; Deterministic guards down &rarr; the answer is withheld with a distinct degraded message; outages log greppable markers for alerting.</li>
@@ -66,7 +66,7 @@ a{color:var(--accent)}
 <li><b>Evidence transparency:</b> formal literature and community-reported practice are separate, labeled lanes with exact attribution — community signal is preserved but never silently promoted to clinical fact.</li>
 <li><b>Evaluated, not vibes:</b> frozen retrieval benchmark + a 50-case answer-quality golden set judged by a different model vendor; route-level exception-injection tests prove the failure behavior.</li>
 </ul>
-<span class="pill">RAG</span><span class="pill">AI safety engineering</span><span class="pill">eval harnesses</span>
+<span class="pill">RAG chatbot</span><span class="pill">semantic search</span><span class="pill">AI safety engineering</span><span class="pill">eval harnesses</span>
 </div>
 
 <div class="card">
@@ -79,12 +79,12 @@ a{color:var(--accent)}
 <li><b>Self-operating:</b> 25+ scheduled jobs — deploy watchers, DB snapshots, a daily fleet-health report to Telegram.</li>
 <li><b>Marketing automation, end to end:</b> AI-generated educational graphics and reels, auto-captioning, a platform-aware compliance linter (per-network claim rules), API scheduling to Instagram/TikTok, and a nightly engagement-analytics feedback loop that steers what gets produced next.</li>
 </ul>
-<span class="pill">agent orchestration</span><span class="pill">MCP</span><span class="pill">local LLMs</span><span class="pill">CI/CD</span>
+<span class="pill">agent orchestration</span><span class="pill">AI tool use / tool-calling</span><span class="pill">MCP</span><span class="pill">local LLMs</span><span class="pill">CI/CD</span>
 </div>
 <h2>How I Work</h2>
 <div class="card">
 <p><b style="color:var(--text)">AI-native, engineering-disciplined.</b> I treat AI agents the way a lead treats a team: I own the architecture, write the specs, review every diff adversarially, demand real test output before believing anything works, and keep humans on every irreversible gate. The method scales one person to a shipping team — the discipline is what makes it safe.</p>
-<span class="pill">Python / Flask</span><span class="pill">JavaScript</span><span class="pill">SQLite / SQL</span><span class="pill">Stripe</span><span class="pill">StoreKit 2</span><span class="pill">Claude Code / Codex</span><span class="pill">MCP servers</span><span class="pill">RAG / embeddings</span><span class="pill">Ollama / LiteLLM</span><span class="pill">n8n-style automation</span><span class="pill">GitHub Actions CI</span><span class="pill">Cloudflare / Northflank</span>
+<span class="pill">Python / Flask</span><span class="pill">JavaScript</span><span class="pill">SQLite / SQL</span><span class="pill">Stripe</span><span class="pill">StoreKit 2</span><span class="pill">Claude Code / Codex</span><span class="pill">MCP servers</span><span class="pill">RAG chatbots</span><span class="pill">semantic search</span><span class="pill">AI tool use</span><span class="pill">Google ADK</span><span class="pill">Ollama / LiteLLM</span><span class="pill">n8n-style automation</span><span class="pill">GitHub Actions CI</span><span class="pill">Cloudflare / Northflank</span>
 </div>
 
 <footer>
